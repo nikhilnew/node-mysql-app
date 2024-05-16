@@ -1,0 +1,186 @@
+{
+    "info": {
+        "name": "Node App API",
+        "_postman_id": "your-unique-id",
+        "description": "API collection for Node app with MySQL",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Register",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"username\": \"testuser\",\n\t\"password\": \"password123\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/auth/register",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["auth", "register"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"username\": \"testuser\",\n\t\"password\": \"password123\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/auth/login",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["auth", "login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Post",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"title\": \"My Post\",\n\t\"body\": \"This is my post body\",\n\t\"geoLocation\": {\n\t\t\"latitude\": 40.7128,\n\t\t\"longitude\": -74.0060\n\t}\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/posts",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["posts"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Posts",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/posts",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["posts"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Post",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"title\": \"Updated Post\",\n\t\"body\": \"This is the updated body\",\n\t\"geoLocation\": {\n\t\t\"latitude\": 40.7128,\n\t\t\"longitude\": -74.0060\n\t}\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/posts/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["posts", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Post",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/posts/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["posts", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Retrieve Posts by Geo Location",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"latitude\": 40.7128,\n\t\"longitude\": -74.0060\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/posts/geo",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["posts", "geo"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Count Active and Inactive Posts",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:3000/posts/count",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["posts", "count"]
+                }
+            },
+            "response": []
+        }
+    ]
+}
